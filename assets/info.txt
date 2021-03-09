@@ -1,0 +1,14 @@
+BLBLABALBDLABLBABLCBL
+
+Info und Beschreibung zur App
+
+BLBLABALBDLABLBABLCBL
+
+n bisschen über Funktionen, bekannte Fehler und mehr quatschen.
+
+Geplante Funktionen sind:
+- Zu jeder Tierart kann eine kurze Beschreibung angezeigt werden, die die wichtigsten Punkte unserer Unterlagen zusammenfasst. 
+
+Aufruf mir gerne Vorschläge und Fehler, die nicht hier gelistet sind, zu schicken. Möglicherweise werden diese implementiert bzw. behoben.
+
+Impressum, Name, Kontaktdaten
