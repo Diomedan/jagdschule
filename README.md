@@ -4,7 +4,7 @@ Eine zufällige Auswahl von tausenden aus Flickr geladenen Bildern, um die für 
 
 ## Nutzung der App
 
-Die Bedienung der App ist simpel: einfach die Kategorieaussuchen, die du lernen willst. Dann wird dir ein Bild einer zufälligen Tierart der Kategorie angezeigt. Mit einem Klick auf "Tierart anzeigen" bekommst du zu sehen, um was für ein Tier es sich handelt. Weiterhin kannst du untendrunter ein Bild vor- oder zurück gehen. 
+Die Bedienung der App ist simpel: einfach die Kategorie aussuchen, die du lernen willst. Dann wird dir ein Bild einer zufälligen Tierart der Kategorie angezeigt. Mit einem Klick auf "Tierart anzeigen" bekommst du zu sehen, um was für ein Tier es sich handelt. Weiterhin kannst du untendrunter ein Bild vor- oder zurück gehen. 
 
 ## Mithelfen
 
