@@ -17,6 +17,7 @@ Federwild,Türkentaube,https://live.staticflickr.com/1788/43221528202_a5749811b0
 
 ## Geplante Funktionen
 
+- Da die Bilder alle in Echtzeit aus dem Internet geladen werden, muss je nach Internetverbindung ein paar Sekunden pro Bild gewartet werden. Um das zu verhindern soll Caching eingeführt werden, damit ohne Ladezeiten vor- und zurückgegangen werden kann.
 - Zu jeder Tierart soll eine kurze Beschreibung angezeigt werden können, die die wichtigsten Punkte unserer Unterlagen zusammenfasst. 
 - Die Bilder sollen herangezoomt werden können.
 
