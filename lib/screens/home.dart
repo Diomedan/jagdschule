@@ -5,16 +5,20 @@ import 'package:flutter/services.dart';
 
 import 'package:testing_app/models/images.dart';
 import 'package:testing_app/screens/images.dart';
-// import 'package:testing_app/screens/info.dart';
+import 'package:testing_app/screens/info.dart';
 
 class HomePage extends StatelessWidget {
   static String routeName = '/';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Tierarten lernen'), actions: [
-        IconButton(icon: Icon(Icons.info), onPressed: () {} // Navigator.pushNamed(context, InfoScreen.routeName))       überarbeiten bevor das aktiviert werden kann
-            )
+        IconButton(
+            icon: Icon(Icons.info),
+            onPressed: () async {
+              Navigator.pushNamed(context, InfoScreen.routeName);
+            })
       ]),
       body: ListView.builder(
         itemCount: 3,
@@ -41,7 +45,8 @@ class ItemTile extends StatelessWidget {
 
   Future<List<List<dynamic>>> loadCsv(animalType) async {
     final csvData = await rootBundle.loadString("assets/images.csv");
-    List<List<dynamic>> csvTable = CsvToListConverter(eol: ';').convert(csvData);
+    List<List<dynamic>> csvTable =
+        CsvToListConverter(eol: ';').convert(csvData);
     var animalExclusiveCsvTable = [
       for (var e in csvTable)
         if (e[0].contains(animalType)) e
@@ -52,7 +57,8 @@ class ItemTile extends StatelessWidget {
 
   Future<Set> createSpeciesSet(animalType) async {
     final csvData = await rootBundle.loadString("assets/images.csv");
-    List<List<dynamic>> csvTable = CsvToListConverter(eol: ';').convert(csvData);
+    List<List<dynamic>> csvTable =
+        CsvToListConverter(eol: ';').convert(csvData);
     var animalExclusiveCsvTable = [
       for (var e in csvTable)
         if (e[0].contains(animalType)) e
@@ -67,7 +73,8 @@ class ItemTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: ListTile(
-        title: Text(_animalTypes[itemNo], key: Key(_animalTypes[itemNo]), style: TextStyle(fontSize: 20)),
+        title: Text(_animalTypes[itemNo],
+            key: Key(_animalTypes[itemNo]), style: TextStyle(fontSize: 20)),
         onTap: () async {
           imagesList.currentItem = 0;
           imagesList.speciesSet.clear();

@@ -22,7 +22,7 @@ class JagdLernApp extends StatelessWidget {
         routes: {
           HomePage.routeName: (context) => HomePage(),
           ImageScreen.routeName: (context) => ImageScreen(),
-          InfoScreen.routeName: (context) => InfoScreen(infoText: InfoText()),
+          InfoScreen.routeName: (context) => InfoScreen(),
         },
         initialRoute: HomePage.routeName,
       ),
