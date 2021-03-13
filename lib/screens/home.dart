@@ -4,7 +4,7 @@ import 'package:csv/csv.dart';
 import 'package:flutter/services.dart';
 
 import 'package:testing_app/models/images.dart';
-import 'package:testing_app/models/settings.dart';
+
 import 'package:testing_app/screens/images.dart';
 import 'package:testing_app/screens/info.dart';
 import 'package:testing_app/screens/settings.dart';
@@ -14,28 +14,26 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<Settings>(
-        create: (context) => Settings(),
-        child: Scaffold(
-          appBar: AppBar(title: Text('Tierarten lernen'), actions: [
-            IconButton(
-                icon: Icon(Icons.settings),
-                onPressed: () async {
-                  Navigator.pushNamed(context, SettingsScreen.routeName);
-                }),
-            IconButton(
-                icon: Icon(Icons.info),
-                onPressed: () async {
-                  Navigator.pushNamed(context, InfoScreen.routeName);
-                })
-          ]),
-          body: ListView.builder(
-            itemCount: 3,
-            cacheExtent: 20.0,
-            padding: const EdgeInsets.symmetric(vertical: 16),
-            itemBuilder: (context, index) => ItemTile(index),
-          ),
-        ));
+    return Scaffold(
+      appBar: AppBar(title: Text('Tierarten lernen'), actions: [
+        IconButton(
+            icon: Icon(Icons.settings),
+            onPressed: () async {
+              Navigator.pushNamed(context, SettingsScreen.routeName);
+            }),
+        IconButton(
+            icon: Icon(Icons.info),
+            onPressed: () async {
+              Navigator.pushNamed(context, InfoScreen.routeName);
+            })
+      ]),
+      body: ListView.builder(
+        itemCount: 3,
+        cacheExtent: 20.0,
+        padding: const EdgeInsets.symmetric(vertical: 16),
+        itemBuilder: (context, index) => ItemTile(index),
+      ),
+    );
   }
 }
 

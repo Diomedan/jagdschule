@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 // import 'package:cached_network_image/cached_network_image.dart';
 
 class Images extends ChangeNotifier {
+  // TODO: Change the way this provider works: Load the csv only once, then use it inside class
   final List<List<dynamic>> _speciesImageItems = [];
   final List<List<dynamic>> _previousImageItems = [];
   /*final List<CachedNetworkImage> _cachedImages = [
@@ -68,13 +69,15 @@ class Images extends ChangeNotifier {
   }
 
   void addToPreviousItems(Set speciesSet, List<List<dynamic>> speciesCsv) {
-    var randomAnimal = speciesSet.elementAt(Random().nextInt(speciesSet.length));
+    var randomAnimal =
+        speciesSet.elementAt(Random().nextInt(speciesSet.length));
 
     var speciesImageList = [
       for (var e in speciesCsv)
         if (e[1].contains(randomAnimal)) e
     ];
-    _previousImageItems.add(speciesImageList.elementAt(Random().nextInt(speciesImageList.length)));
+    _previousImageItems.add(
+        speciesImageList.elementAt(Random().nextInt(speciesImageList.length)));
     notifyListeners();
   }
 

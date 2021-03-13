@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:testing_app/models/images.dart';
+import 'package:testing_app/models/settings.dart';
+
 import 'package:testing_app/screens/images.dart';
 import 'package:testing_app/screens/home.dart';
 import 'package:testing_app/screens/info.dart';
@@ -15,8 +17,11 @@ void main() {
 class JagdLernApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<Images>(
-      create: (context) => Images(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<Images>(create: (context) => Images()),
+        ChangeNotifierProvider<Settings>(create: (context) => Settings()),
+      ],
       child: MaterialApp(
         title: 'Testing Sample',
         theme: CustomAppTheme.customAppTheme(),
