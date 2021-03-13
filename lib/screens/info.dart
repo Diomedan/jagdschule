@@ -4,31 +4,45 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class InfoText {}
+class InfoText {
+  Future<String> readCounter() async {
+    // Read the file
+    String contents = await rootBundle.loadString("assets/info.txt");
+
+    return contents;
+  }
+}
 
 class InfoScreen extends StatefulWidget {
+  final InfoText infoText;
   static String routeName = '/infoScreen';
 
-  InfoScreen({Key key}) : super(key: key);
+  InfoScreen({Key key, @required this.infoText}) : super(key: key);
 
   @override
   _InfoScreenState createState() => _InfoScreenState();
 }
 
 class _InfoScreenState extends State<InfoScreen> {
-  var _infoText;
+  String _infoText;
 
-  Future<String> readInfoText() async {
-    // Read the file
-    final contents = await rootBundle.loadString("info.txt");
-    return contents;
+  @override
+  void initState() {
+    super.initState();
+    widget.infoText.readCounter().then((String value) {
+      setState(() {
+        _infoText = value;
+      });
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Reading and Writing Files')),
-      body: Center(child: Text("test")),
+      body: Center(
+        child: Text(_infoText),
+      ),
     );
   }
 }
