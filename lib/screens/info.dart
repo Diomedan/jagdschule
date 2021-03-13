@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class InfoText {
-  Future<String> readCounter() async {
+  Future<String> readInfoText() async {
     // Read the file
     String contents = await rootBundle.loadString("assets/info.txt");
 
@@ -29,7 +29,7 @@ class _InfoScreenState extends State<InfoScreen> {
   @override
   void initState() {
     super.initState();
-    widget.infoText.readCounter().then((String value) {
+    widget.infoText.readInfoText().then((String value) {
       setState(() {
         _infoText = value;
       });

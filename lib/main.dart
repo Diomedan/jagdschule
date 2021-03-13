@@ -5,6 +5,7 @@ import 'package:testing_app/models/images.dart';
 import 'package:testing_app/screens/images.dart';
 import 'package:testing_app/screens/home.dart';
 import 'package:testing_app/screens/info.dart';
+import 'package:testing_app/screens/settings.dart';
 import 'package:testing_app/layout/theme.dart';
 
 void main() {
@@ -23,6 +24,7 @@ class JagdLernApp extends StatelessWidget {
           HomePage.routeName: (context) => HomePage(),
           ImageScreen.routeName: (context) => ImageScreen(),
           InfoScreen.routeName: (context) => InfoScreen(infoText: InfoText()),
+          SettingsScreen.routeName: (context) => SettingsScreen(),
         },
         initialRoute: HomePage.routeName,
       ),
