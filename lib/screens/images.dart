@@ -1,3 +1,6 @@
+// import 'dart:ui' as ui;
+// import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -186,23 +189,30 @@ class InfoCard extends StatelessWidget {
   final Images value;
   final Widget? child;
   final VoidCallback? onFlip;
+
+  String loadInfoText(infoCsv, currentSpecies) {
+    var animalInfo = "";
+    for (int i = 0; i < infoCsv.length; i++) {
+      if (infoCsv[i][0].contains(currentSpecies)) {
+        animalInfo = infoCsv[i][1];
+      }
+    }
+    return animalInfo;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
         child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        Text(loadInfoText(value.speciesInfoItems, value.animalSpecies)),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                IconButton(
-                  onPressed: onFlip,
-                  icon: const Icon(Icons.flip),
-                )
-              ],
+            IconButton(
+              onPressed: onFlip,
+              icon: const Icon(Icons.flip),
             )
           ],
         )

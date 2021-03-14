@@ -62,6 +62,13 @@ class ItemTile extends StatelessWidget {
     return animalExclusiveCsvTable;
   }
 
+  Future<List<List<dynamic>>> loadInfoCsv() async {
+    final csvData = await rootBundle.loadString("speciesInfo.csv");
+    List<List<dynamic>> csvTable =
+        CsvToListConverter(eol: ';').convert(csvData);
+    return csvTable;
+  }
+
   Future<Set> createSpeciesSet(animalType) async {
     final csvData = await rootBundle.loadString("assets/images.csv");
     List<List<dynamic>> csvTable =
@@ -87,11 +94,14 @@ class ItemTile extends StatelessWidget {
           imagesList.speciesSet.clear();
           imagesList.previousItems.clear();
           imagesList.speciesItems.clear();
+          imagesList.speciesInfoItems.clear();
           var animalType = _animalTypes[itemNo];
           var animalTypeCsv = await loadCsv(animalType);
           var speciesSet = await createSpeciesSet(animalType);
+          var speciesInfo = await loadInfoCsv();
           imagesList.animalType = animalType;
           imagesList.add(animalTypeCsv);
+          imagesList.addSpeciesInfo(speciesInfo);
           imagesList.addSpeciesSet(speciesSet);
           imagesList.addToPreviousItems(speciesSet, animalTypeCsv);
           imagesList.animalSpecies = imagesList.previousItems[0][1];

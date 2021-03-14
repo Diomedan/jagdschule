@@ -26,9 +26,6 @@ class PageFlipBuilderState extends State<PageFlipBuilder>
       duration: const Duration(milliseconds: 500),
     );
     _controller.addStatusListener(_updateStatus);
-    _controller.addListener(() {
-      print('value: ${_controller.value}');
-    });
     super.initState();
   }
 

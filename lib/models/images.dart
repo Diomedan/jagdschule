@@ -12,6 +12,7 @@ class Images extends ChangeNotifier {
       placeholder: (context, url) => CircularProgressIndicator(),
     )
   ];*/
+  final List<List<dynamic>> _speciesInfoItems = [];
   var _speciesSet = Set();
   var _animalSpecies = "";
   var _currentItem = 0;
@@ -26,6 +27,7 @@ class Images extends ChangeNotifier {
   String get animalType => _animalType;
   bool get showSpecies => _showSpecies;
   // List<CachedNetworkImage> get cachedImages => _cachedImages;
+  List<List<dynamic>> get speciesInfoItems => _speciesInfoItems;
 
   set animalSpecies(currentSpecies) {
     _animalSpecies = currentSpecies;
@@ -58,6 +60,12 @@ class Images extends ChangeNotifier {
     for (final e in speciesCsv) {
       _speciesImageItems.add(e);
       notifyListeners();
+    }
+  }
+
+  void addSpeciesInfo(List<List<dynamic>> speciesInfoCsv) {
+    for (final e in speciesInfoCsv) {
+      _speciesInfoItems.add(e);
     }
   }
 
