@@ -40,3 +40,16 @@ flutter:
   assets:
     - assets/images.csv
     - assets/info.txt
+    - assets/speciesInfo.csv
+
+  fonts: 
+    - family: NotoSerif
+      fonts: 
+        - asset: assets/fonts/Noto_Serif/NotoSerif-Regular.ttf
+        - asset: assets/fonts/Noto_Serif/NotoSerif-Italic.ttf
+          style: italic
+        - asset: assets/fonts/Noto_Serif/NotoSerif-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Noto_Serif/NotoSerif-BoldItalic.ttf
+          weight: 700
+          style: italic
