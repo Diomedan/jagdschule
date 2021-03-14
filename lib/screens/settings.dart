@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:testing_app/models/settings.dart';
+import 'package:jagdschule/models/settings.dart';
 
 class SettingsScreen extends StatelessWidget {
   static const routeName = '/settingsScreen';

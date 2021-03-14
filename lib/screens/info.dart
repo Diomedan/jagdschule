@@ -17,14 +17,14 @@ class InfoScreen extends StatefulWidget {
   final InfoText infoText;
   static String routeName = '/infoScreen';
 
-  InfoScreen({Key key, @required this.infoText}) : super(key: key);
+  InfoScreen({Key? key, required this.infoText}) : super(key: key);
 
   @override
   _InfoScreenState createState() => _InfoScreenState();
 }
 
 class _InfoScreenState extends State<InfoScreen> {
-  String _infoText;
+  late final _infoText;
 
   @override
   void initState() {

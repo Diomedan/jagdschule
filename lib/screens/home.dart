@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:csv/csv.dart';
+import 'package:jagdschule/csvConverter/csv.dart';
 import 'package:flutter/services.dart';
 
-import 'package:testing_app/models/images.dart';
+import 'package:jagdschule/models/images.dart';
 
-import 'package:testing_app/screens/images.dart';
-import 'package:testing_app/screens/info.dart';
-import 'package:testing_app/screens/settings.dart';
+import 'package:jagdschule/screens/images.dart';
+import 'package:jagdschule/screens/info.dart';
+import 'package:jagdschule/screens/settings.dart';
 
 class HomePage extends StatelessWidget {
   static String routeName = '/';

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:testing_app/models/images.dart';
-import 'package:testing_app/models/settings.dart';
+import 'package:jagdschule/models/images.dart';
+import 'package:jagdschule/models/settings.dart';
 
-import 'package:testing_app/screens/images.dart';
-import 'package:testing_app/screens/home.dart';
-import 'package:testing_app/screens/info.dart';
-import 'package:testing_app/screens/settings.dart';
-import 'package:testing_app/layout/theme.dart';
+import 'package:jagdschule/screens/images.dart';
+import 'package:jagdschule/screens/home.dart';
+import 'package:jagdschule/screens/info.dart';
+import 'package:jagdschule/screens/settings.dart';
+import 'package:jagdschule/layout/theme.dart';
 
 void main() {
   runApp(JagdLernApp());
@@ -23,7 +23,7 @@ class JagdLernApp extends StatelessWidget {
         ChangeNotifierProvider<Settings>(create: (context) => Settings()),
       ],
       child: MaterialApp(
-        title: 'Testing Sample',
+        title: 'Wildtierarten & Jagdhunde',
         theme: CustomAppTheme.customAppTheme(),
         routes: {
           HomePage.routeName: (context) => HomePage(),

@@ -1,6 +1,6 @@
 /*
 import 'package:test/test.dart';
-import 'package:testing_app/models/images.dart';
+import 'package:jagdschule/models/images.dart';
 
 void main() {
   group('App Provider Tests', () {
