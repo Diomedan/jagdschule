@@ -135,6 +135,9 @@ class ImageCard extends StatelessWidget {
                             imagesList.currentItem -= 1;
                             imagesList.animalSpecies =
                                 value.previousItems[value.currentItem][1];
+
+                            imagesList
+                                .loadSpeciesInfoWidgetList(value.animalSpecies);
                           }))
               ],
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -165,6 +168,9 @@ class ImageCard extends StatelessWidget {
                           }
                           value.animalSpecies =
                               value.previousItems[value.currentItem][1];
+
+                          imagesList
+                              .loadSpeciesInfoWidgetList(value.animalSpecies);
                         }))
               ],
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -197,18 +203,17 @@ class InfoCard extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Expanded(
-          child: Scrollbar(
-            isAlwaysShown: true,
-            child: SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Text(
-                  value.currentSpeciesInfo.isEmpty
-                      ? "Keine Beschreibung verfügbar"
-                      : value.currentSpeciesInfo,
-                  style: TextStyle(fontSize: 30)),
-            ),
+            child: Scrollbar(
+          isAlwaysShown: true,
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Padding(
+                padding: EdgeInsets.all(20),
+                child: Column(
+                  children: value.currentSpeciesInfoWidgetList,
+                )),
           ),
-        ),
+        )),
         // loadInfoText(value.speciesInfoItems, value.animalSpecies)
         Row(
           mainAxisAlignment: MainAxisAlignment.center,

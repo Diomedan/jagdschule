@@ -105,8 +105,7 @@ class ItemTile extends StatelessWidget {
           imagesList.addSpeciesSet(speciesSet);
           imagesList.addToPreviousItems(speciesSet, animalTypeCsv);
           imagesList.animalSpecies = imagesList.previousItems[0][1];
-          imagesList.loadInfoText(
-              imagesList.speciesInfoItems, imagesList.animalSpecies);
+          imagesList.loadSpeciesInfoWidgetList(imagesList.animalSpecies);
           Navigator.pushNamed(context, ImageScreen.routeName);
         },
       ),
