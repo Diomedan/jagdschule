@@ -18,6 +18,7 @@ class Images extends ChangeNotifier {
   var _currentItem = 0;
   var _animalType = "";
   var _showSpecies = false;
+  var _currentSpeciesInfo = "";
 
   List<List<dynamic>> get speciesItems => _speciesImageItems;
   List<List<dynamic>> get previousItems => _previousImageItems;
@@ -28,6 +29,7 @@ class Images extends ChangeNotifier {
   bool get showSpecies => _showSpecies;
   // List<CachedNetworkImage> get cachedImages => _cachedImages;
   List<List<dynamic>> get speciesInfoItems => _speciesInfoItems;
+  String get currentSpeciesInfo => _currentSpeciesInfo;
 
   set animalSpecies(currentSpecies) {
     _animalSpecies = currentSpecies;
@@ -46,6 +48,11 @@ class Images extends ChangeNotifier {
 
   set showSpecies(showSpecies) {
     _showSpecies = showSpecies;
+    notifyListeners();
+  }
+
+  set currentSpeciesInfo(currentSpeciesInformation) {
+    _currentSpeciesInfo = currentSpeciesInformation;
     notifyListeners();
   }
 
@@ -95,5 +102,14 @@ class Images extends ChangeNotifier {
 
   void removeSpeciesSet() {
     _speciesSet.clear();
+  }
+
+  void loadInfoText(infoCsv, currentSpecies) {
+    for (int i = 0; i < infoCsv.length; i++) {
+      if (infoCsv[i][0].contains(currentSpecies)) {
+        _currentSpeciesInfo = infoCsv[i][1];
+      }
+    }
+    notifyListeners();
   }
 }
