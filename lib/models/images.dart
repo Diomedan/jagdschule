@@ -106,27 +106,36 @@ class Images extends ChangeNotifier {
     for (int i = 0; i < _speciesInfoItems.length; i++) {
       if (_speciesInfoItems[i][0].contains(currentSpecies)) {
         currentSpeciesInfoList.addAll(speciesInfoItems[i]);
-        break;
       }
     }
     List<Widget> textWidgetList = [];
-    for (int i = 0; i < currentSpeciesInfoList.length; i++) {
+    for (int i = 1; i < currentSpeciesInfoList.length; i = i + 2) {
+      textWidgetList.add(Row(
+        children: [
+          Padding(
+              padding: EdgeInsets.fromLTRB(0, 16, 16, 0),
+              child: Text(
+                currentSpeciesInfoList[i],
+                style: TextStyle(fontWeight: FontWeight.w700),
+              )),
+          Expanded(
+              child: Padding(
+                  padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
+                  child: Text(currentSpeciesInfoList[i + 1]))),
+        ],
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+      ));
+    }
+    if (currentSpeciesInfoList.length < 2) {
       textWidgetList.add(
         Text(
-          currentSpeciesInfoList[i],
-          style: TextStyle(fontSize: i.isEven ? 16 : 20),
+          "Keine Beschreibung verfügbar",
+          style: TextStyle(fontSize: 16),
         ),
       );
-      textWidgetList.add(SizedBox(height: 10));
-      if (currentSpeciesInfoList.length == 1) {
-        textWidgetList.add(
-          Text(
-            "Keine Beschreibung verfügbar",
-            style: TextStyle(fontSize: 16),
-          ),
-        );
-      }
     }
+
     _currentSpeciesInfoWidgetList.addAll(textWidgetList);
   }
 }

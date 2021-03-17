@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
+// needs web renderer html, consider changing to use better renderer canvaskit
+
 class PageFlipBuilder extends StatefulWidget {
   const PageFlipBuilder({
     Key? key,
