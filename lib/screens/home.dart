@@ -63,10 +63,10 @@ class ItemTile extends StatelessWidget {
   }
 
   Future<List<List<dynamic>>> loadInfoCsv() async {
-    final csvData = await rootBundle.loadString("speciesInfo.csv");
-    List<List<dynamic>> csvTable =
-        CsvToListConverter(eol: ';').convert(csvData);
-    return csvTable;
+    final infoCsvData = await rootBundle.loadString("assets/speciesInfo.csv");
+    List<List<dynamic>> infoCsvTable =
+        CsvToListConverter(eol: ';').convert(infoCsvData);
+    return infoCsvTable;
   }
 
   Future<Set> createSpeciesSet(animalType) async {
