@@ -75,56 +75,65 @@ class ImageCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const _textStyle = TextStyle(fontSize: 20);
     var imagesList = Provider.of<Images>(context);
     return Card(
-      child: Padding(
-        padding: EdgeInsets.all(16),
-        child: Column(
-          children: [
-            Container(
-              padding: EdgeInsets.fromLTRB(0, 0, 0, 16),
-              width: MediaQuery.of(context).size.width,
-              height: (MediaQuery.of(context).size.height / 2),
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.fitWidth,
-                  image: NetworkImage(
-                    // TODO: enable zoom-in
-                    value.previousItems[value.currentItem][2],
-                  ),
+      child: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.all(16),
+            width: MediaQuery.of(context).size.width,
+            height: (MediaQuery.of(context).size.height / 2),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                fit: BoxFit.fitWidth,
+                image: NetworkImage(
+                  // TODO: enable zoom-in
+                  value.previousItems[value.currentItem][2],
                 ),
               ),
             ),
-            Row(
+          ),
+          Spacer(),
+          _buildDivider(),
+          Padding(
+            padding: EdgeInsets.all(16),
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ElevatedButton(
+                InkWell(
                   child: FittedBox(
-                      fit: BoxFit.fitHeight,
                       child: Text(
-                        value.showSpecies
-                            ? value.animalSpecies
-                            : "Tierart anzeigen",
-                      )),
-                  onPressed: () {
+                    value.showSpecies
+                        ? value.animalSpecies
+                        : "Tierart anzeigen",
+                    style: _textStyle,
+                  )),
+                  onTap: () {
                     value.showSpecies
                         ? value.showSpecies = false
                         : value.showSpecies = true;
                   },
-                )
+                ),
               ],
             ),
-            Spacer(),
-            Row(
+          ),
+          _buildDivider(),
+          Padding(
+            padding: EdgeInsets.all(16),
+            child: Row(
               children: [
                 Expanded(
                     child: Column(children: [
                   if (value.currentItem > 0)
-                    ElevatedButton(
+                    InkWell(
                       child: FittedBox(
                           fit: BoxFit.fitHeight,
-                          child: Text("Vorheriges Photo")),
-                      onPressed: () {
+                          child: Text(
+                            "Vorheriges Photo",
+                            style: _textStyle,
+                          )),
+                      onTap: () {
                         imagesList.currentItem -= 1;
                         imagesList.animalSpecies =
                             value.previousItems[value.currentItem][1];
@@ -141,10 +150,14 @@ class ImageCard extends StatelessWidget {
                 )),
                 Expanded(
                     child: Column(children: [
-                  ElevatedButton(
+                  InkWell(
                     child: FittedBox(
-                        fit: BoxFit.fitHeight, child: Text("Nächstes Photo")),
-                    onPressed: () {
+                        fit: BoxFit.fitHeight,
+                        child: Text(
+                          "Nächstes Photo",
+                          style: _textStyle,
+                        )),
+                    onTap: () {
                       imagesList.currentItem +=
                           1; // improve showing the species name: if not shown so far, it will not show when going back or forth
                       value.showSpecies = false;
@@ -162,10 +175,21 @@ class ImageCard extends StatelessWidget {
                 ]))
               ],
               mainAxisAlignment: MainAxisAlignment.center,
-            )
-          ],
-        ),
+            ),
+          )
+        ],
       ),
+    );
+  }
+
+  Container _buildDivider() {
+    return Container(
+      margin: const EdgeInsets.symmetric(
+        horizontal: 8.0,
+      ),
+      width: double.infinity,
+      height: 1.0,
+      color: Colors.black54,
     );
   }
 }
