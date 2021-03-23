@@ -78,18 +78,21 @@ class ImageCard extends StatelessWidget {
     const _textStyle = TextStyle(fontSize: 20);
     var imagesList = Provider.of<Images>(context);
     return Card(
+      margin: EdgeInsets.zero,
       child: Column(
         children: [
-          Container(
-            padding: EdgeInsets.all(16),
-            width: MediaQuery.of(context).size.width,
-            height: (MediaQuery.of(context).size.height / 2),
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                fit: BoxFit.fitWidth,
-                image: NetworkImage(
-                  // TODO: enable zoom-in
-                  value.previousItems[value.currentItem][2],
+          InteractiveViewer(
+            child: Container(
+              padding: EdgeInsets.all(16),
+              width: MediaQuery.of(context).size.width,
+              height: (MediaQuery.of(context).size.height / 2),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.fitWidth,
+                  image: NetworkImage(
+                    // TODO: enable zoom-in
+                    value.previousItems[value.currentItem][2],
+                  ),
                 ),
               ),
             ),
